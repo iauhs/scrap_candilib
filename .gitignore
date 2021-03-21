@@ -1,0 +1,10 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.secret
+.DS_Store
+prg/selenium-server-standalone-4.0.0-alpha-1.jar
+prg/credentials.json
+prg/perso_candilib.R
+screenshot/*
