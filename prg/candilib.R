@@ -137,8 +137,7 @@ for(i in 1:2000){
       print (err)
       email <- envelope() %>%
         from("pascal.ws@gmail.com") %>%
-        # to("shuai2wang@gmail.com") %>%
-        to("shuai.wang@axa-direct.com") %>%
+        to("shuai2wang@gmail.com") %>%
         subject(paste0("give a try for the candilib : ", url)) %>% 
         text(paste0("There is a bug, you need to change the url : \n", 
                     url))
