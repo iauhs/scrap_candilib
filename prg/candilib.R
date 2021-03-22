@@ -10,16 +10,6 @@ require(httr)
 library(dplyr)
 library(xml2)
 
-# help(emayili)
-
-# driver<- rsDriver()
-# remDr <- driver[["client"]]
-
-# remDr <- RSelenium::remoteDriver(remoteServerAddr = "localhost",
-#                                  port =4446L,
-#                                  browserName = "chrome")
-# startServer()
-
 url = "https://beta.interieur.gouv.fr/candilib/candidat?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMzA1ZTZjOTU5ZDAwMDAxMDMzYjk5MCIsImxldmVsIjowLCJpYXQiOjE1OTc4MjM2NjgsImV4cCI6MTU5ODA4Mjg2OH0.Gvk22hJ5Tqk6nFwmUhh1Omlkl7K923pjmwO7TUj-vGw"
 # https://beta.interieur.gouv.fr/candilib/candidat?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMzA1ZTZjOTU5ZDAwMDAxMDMzYjk5MCIsImxldmVsIjowLCJpYXQiOjE1OTEzMzM4NzAsImV4cCI6MTU5MTU5MzA3MH0.1BNHPbYISlsE3vbu72W8OGw1xEBNPoSDIZEDUhScQFo
 
@@ -30,19 +20,13 @@ RSelenium::checkForServer()
 system('docker run -d -p 4445:4444 selenium/standalone-chrome') # let docker run a chrome with the port 4445
 remDr <- remoteDriver(remoteServerAddr = "localhost", port = 4445L, browserName = "chrome")
 
-# system('docker pull selenium/standalone-firefox')
-# system('docker run -d -p 4447:4446 selenium/standalone-firefox')
-# remDr <- remoteDriver(remoteServerAddr = "localhost", port = 4447L) #, browserName = "firefox") remoteServerAddr = "192.168.1.255", 
-
 Sys.sleep(10)
 
 remDr$open()
 remDr$navigate(url)
 
-
 for(i in 1:2000){
   tryCatch({
-    # Sys.sleep(rnorm(1, 50, 5))
     remDr$refresh()
     Sys.sleep(abs(rnorm(1, 2, .2)))
     remDr$getStatus()
